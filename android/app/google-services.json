@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "1003318079648",
+    "project_id": "fir-chat-dd927",
+    "storage_bucket": "fir-chat-dd927.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003318079648:android:f306862cb191005c6319c5",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003318079648-b5ck5km90oekbcgq52c0qh56b58paij3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chat_app",
+            "certificate_hash": "3fb6e3129d32db0dd2c41cd34695423dd62bf003"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2ACOgNLf8aQTnV0Ayu5q4WOFMVGh_-VA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003318079648-fqm85mfogobeae2dfetqvrpm5qhrtufj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1003318079648-jlkg89652aeikid77k8vvd84kcbi96ne.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.timelessfusionapps.smartTalk"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

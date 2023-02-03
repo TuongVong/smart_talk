@@ -1,0 +1,47 @@
+{
+    "id": "d527eb6b-9c96-492b-90a8-3040ed222629",
+    "nameCaller": "John Vong",
+    "appName": "Callkit",
+    "avatar": "https://i.pravatar.cc/100",
+    "handle": "0918678005",
+    "type": 0,
+    "duration": 30000,
+    "textAccept": "Accept",
+    "textDecline": "Decline",
+    "textMissedCall": "Missed call",
+    "textCallback": "Call back",
+    "extra": {
+        "userId": "1a2b3c4f"
+    },
+    "headers": {
+        "apiKey": "Abc@123!",
+        "platform": "flutter"
+    },
+    "android": {
+        "isCustomNotification": true,
+        "isShowLogo": false,
+        "isShowCallback": false,
+        "ringtonePath": "system_ringtone_default",
+        "backgroundColor": "#0955fa",
+        "backgroundUrl": "https://i.pravatar.cc/500",
+        "actionColor": "#4CAF50",
+        "incomingCallNotificationChannelName": "Incoming Call",
+        "missedCallNotificationChannelName": "Missed Call"
+    },
+    "ios": {
+        "iconName": "CallKitLogo",
+        "handleType": "",
+        "supportsVideo": true,
+        "maximumCallGroups": 2,
+        "maximumCallsPerCallGroup": 1,
+        "audioSessionMode": "default",
+        "audioSessionActive": true,
+        "audioSessionPreferredSampleRate": 44100.0,
+        "audioSessionPreferredIOBufferDuration": 0.005,
+        "supportsDTMF": true,
+        "supportsHolding": true,
+        "supportsGrouping": false,
+        "supportsUngrouping": false,
+        "ringtonePath": "system_ringtone_default"
+    }
+}
