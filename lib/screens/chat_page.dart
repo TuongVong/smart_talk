@@ -20,8 +20,8 @@ import 'package:smart_talk/providers/chat_provider.dart';
 import 'package:smart_talk/screens/login_page.dart';
 import 'package:smart_talk/screens/video_call_page2.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
-import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
+// import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
+// import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
 
 class ChatPage extends StatefulWidget {
   final String peerId;
@@ -238,34 +238,35 @@ class _ChatPageState extends State<ChatPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ZegoUIKitPrebuiltCallWithInvitation(
-      appID: ZEGO_APP_ID,
-      appSign: ZEGO_APP_SYGN,
-      userID: currentUserId,
-      userName: currentUserDisplayName,
-      plugins: [ZegoUIKitSignalingPlugin()],
-      requireConfig: (ZegoCallInvitationData data) {
-        late ZegoUIKitPrebuiltCallConfig config;
-
-        if (data.invitees.length > 1) {
-          ///  group call
-          config = ZegoInvitationType.videoCall == data.type
-              ? ZegoUIKitPrebuiltCallConfig.groupVideoCall()
-              : ZegoUIKitPrebuiltCallConfig.groupVoiceCall();
-        } else {
-          ///  one on one call
-          config = ZegoInvitationType.videoCall == data.type
-              ? ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall()
-              : ZegoUIKitPrebuiltCallConfig.oneOnOneVoiceCall();
-          config.onHangUp = () {
-            Navigator.of(context).pop();
-          };
-        }
-
-        return config;
-      },
-      child: buildChatPage(context),
-    );
+    // return ZegoUIKitPrebuiltCallWithInvitation(
+    //   appID: ZEGO_APP_ID,
+    //   appSign: ZEGO_APP_SYGN,
+    //   userID: currentUserId,
+    //   userName: currentUserDisplayName,
+    //   plugins: [ZegoUIKitSignalingPlugin()],
+    //   requireConfig: (ZegoCallInvitationData data) {
+    //     late ZegoUIKitPrebuiltCallConfig config;
+    //
+    //     if (data.invitees.length > 1) {
+    //       ///  group call
+    //       config = ZegoInvitationType.videoCall == data.type
+    //           ? ZegoUIKitPrebuiltCallConfig.groupVideoCall()
+    //           : ZegoUIKitPrebuiltCallConfig.groupVoiceCall();
+    //     } else {
+    //       ///  one on one call
+    //       config = ZegoInvitationType.videoCall == data.type
+    //           ? ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall()
+    //           : ZegoUIKitPrebuiltCallConfig.oneOnOneVoiceCall();
+    //       config.onHangUp = () {
+    //         Navigator.of(context).pop();
+    //       };
+    //     }
+    //
+    //     return config;
+    //   },
+    //   child: buildChatPage(context),
+    // );
+    return Container();
   }
 
   Widget buildChatPage(BuildContext context) {
@@ -292,8 +293,8 @@ class _ChatPageState extends State<ChatPage> {
 //            ),
 //            icon: const Icon(Icons.videocam),
 //          ),
-          callButton(false),
-          callButton(true),
+//           callButton(false),
+//           callButton(true),
         ],
       ),
       body: SafeArea(
@@ -580,66 +581,66 @@ class _ChatPageState extends State<ChatPage> {
     );
   }
 
-  Widget callButton(bool isVideoCall) {
-    return ZegoStartCallInvitationButton(
-      isVideoCall: isVideoCall,
-      invitees: getInvitesFromTextCtrl(widget.peerId, widget.peerNickname),
-      icon: ButtonIcon(
-          icon: isVideoCall
-              ? const Icon(Icons.videocam)
-              : const Icon(Icons.phone),
-          backgroundColor: AppColors.spaceCadet),
-      iconSize: const Size(40, 40),
-      buttonSize: const Size(50, 50),
-      onPressed: (String code, String message, List<String> errorInvitees) {
-        callInvite(widget.peerId, currentUserId, currentUserDisplayName,
-            widget.expresstoken);
-        if (errorInvitees.isNotEmpty) {
-          String userIDs = "";
-          for (int index = 0; index < errorInvitees.length; index++) {
-            if (index >= 5) {
-              userIDs += '... ';
-              break;
-            }
+  // Widget callButton(bool isVideoCall) {
+  //   return ZegoStartCallInvitationButton(
+  //     isVideoCall: isVideoCall,
+  //     invitees: getInvitesFromTextCtrl(widget.peerId, widget.peerNickname),
+  //     icon: ButtonIcon(
+  //         icon: isVideoCall
+  //             ? const Icon(Icons.videocam)
+  //             : const Icon(Icons.phone),
+  //         backgroundColor: AppColors.spaceCadet),
+  //     iconSize: const Size(40, 40),
+  //     buttonSize: const Size(50, 50),
+  //     onPressed: (String code, String message, List<String> errorInvitees) {
+  //       callInvite(widget.peerId, currentUserId, currentUserDisplayName,
+  //           widget.expresstoken);
+  //       if (errorInvitees.isNotEmpty) {
+  //         String userIDs = "";
+  //         for (int index = 0; index < errorInvitees.length; index++) {
+  //           if (index >= 5) {
+  //             userIDs += '... ';
+  //             break;
+  //           }
+  //
+  //           var userID = errorInvitees.elementAt(index);
+  //           userIDs += userID + ' ';
+  //         }
+  //         if (userIDs.isNotEmpty) {
+  //           userIDs = userIDs.substring(0, userIDs.length - 1);
+  //         }
+  //
+  //         var message = 'User is offline: $userIDs';
+  //         // if (code.isNotEmpty) {
+  //         //   message += ', code: $code, message:$message';
+  //         // }
+  //         // Fluttertoast.showToast(backgroundColor: Colors.red, msg: message);
+  //       } else if (code.isNotEmpty) {
+  //         Fluttertoast.showToast(
+  //             backgroundColor: Colors.grey,
+  //             msg: 'code: $code, message:$message');
+  //       }
+  //     },
+  //   );
+  // }
 
-            var userID = errorInvitees.elementAt(index);
-            userIDs += userID + ' ';
-          }
-          if (userIDs.isNotEmpty) {
-            userIDs = userIDs.substring(0, userIDs.length - 1);
-          }
-
-          var message = 'User is offline: $userIDs';
-          // if (code.isNotEmpty) {
-          //   message += ', code: $code, message:$message';
-          // }
-          // Fluttertoast.showToast(backgroundColor: Colors.red, msg: message);
-        } else if (code.isNotEmpty) {
-          Fluttertoast.showToast(
-              backgroundColor: Colors.grey,
-              msg: 'code: $code, message:$message');
-        }
-      },
-    );
-  }
-
-  List<ZegoUIKitUser> getInvitesFromTextCtrl(String userID, String userName) {
-    List<ZegoUIKitUser> invitees = [];
-
-    var inviteeIDs = userID.trim().replaceAll('，', '');
-    inviteeIDs.split(",").forEach((inviteeUserID) {
-      if (inviteeUserID.isEmpty) {
-        return;
-      }
-
-      invitees.add(ZegoUIKitUser(
-        id: inviteeUserID,
-        name: userName,
-      ));
-    });
-
-    return invitees;
-  }
+  // List<ZegoUIKitUser> getInvitesFromTextCtrl(String userID, String userName) {
+  //   List<ZegoUIKitUser> invitees = [];
+  //
+  //   var inviteeIDs = userID.trim().replaceAll('，', '');
+  //   inviteeIDs.split(",").forEach((inviteeUserID) {
+  //     if (inviteeUserID.isEmpty) {
+  //       return;
+  //     }
+  //
+  //     invitees.add(ZegoUIKitUser(
+  //       id: inviteeUserID,
+  //       name: userName,
+  //     ));
+  //   });
+  //
+  //   return invitees;
+  // }
 
   void callInvite(
       String targetID, String userID, String userName, String expressToken) {

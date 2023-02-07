@@ -58,8 +58,8 @@ dependencies:
 #  firebase_messaging_platform_interface: ^4.2.7
 #  uuid: ^3.0.7
   http: ^0.13.5
-  zego_uikit_prebuilt_call: ^1.2.13
-  zego_uikit_signaling_plugin: ^1.0.18
+#  zego_uikit_prebuilt_call: ^1.4.3
+#  zego_uikit_signaling_plugin: ^1.4.1
 #  flutter_background_service: ^2.4.5
   zego_zpns: ^2.1.0
   zego_zim: ^2.5.0+1
@@ -70,6 +70,7 @@ dependencies:
   bloc: ^8.1.0
   flutter_webrtc: ^0.9.11
   path_provider: ^2.0.2
+  audioplayers: ^3.0.1
 
 dev_dependencies:
   flutter_test:

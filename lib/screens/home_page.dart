@@ -22,8 +22,9 @@ import 'package:smart_talk/screens/login_page.dart';
 import 'package:smart_talk/screens/profile_page.dart';
 import 'package:smart_talk/utilities/debouncer.dart';
 import 'package:smart_talk/utilities/keyboard_utils.dart';
-import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
-import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
+
+// import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
+// import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
 
 import '../notification/notification_manager.dart';
 
@@ -181,38 +182,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return ZegoUIKitPrebuiltCallWithInvitation(
-      appID: ZEGO_APP_ID,
-      appSign: ZEGO_APP_SYGN,
-      userID: currentUserId,
-      userName: currentUserDisplayName,
-      plugins: [ZegoUIKitSignalingPlugin()],
-      ringtoneConfig: const ZegoRingtoneConfig(
-          // incomingCallPath: "assets/ringtone/incomingCallRingtone.mp3",
-          // outgoingCallPath: "assets/ringtone/outgoingCallRingtone.mp3",
-          ),
-      requireConfig: (ZegoCallInvitationData data) {
-        late ZegoUIKitPrebuiltCallConfig config;
-
-        if (data.invitees.length > 1) {
-          ///  group call
-          config = ZegoInvitationType.videoCall == data.type
-              ? ZegoUIKitPrebuiltCallConfig.groupVideoCall()
-              : ZegoUIKitPrebuiltCallConfig.groupVoiceCall();
-        } else {
-          ///  one on one call
-          config = ZegoInvitationType.videoCall == data.type
-              ? ZegoUIKitPrebuiltCallConfig.oneOnOneVideoCall()
-              : ZegoUIKitPrebuiltCallConfig.oneOnOneVoiceCall();
-          config.onHangUp = () {
-            Navigator.of(context).pop();
-          };
-        }
-
-        return config;
-      },
-      child: buildHomePage(context),
-    );
+    return buildHomePage(context);
   }
 
   Widget buildHomePage(BuildContext context) {
